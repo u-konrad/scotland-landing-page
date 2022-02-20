@@ -1,0 +1,185 @@
+import React, { useState } from "react"
+import { StaticImage } from "gatsby-plugin-image"
+import styled from "styled-components"
+import { createRef } from "react"
+import { BsArrowRight, BsArrowLeft } from "react-icons/bs"
+
+const Landscapes = () => {
+  const ref = createRef()
+  const [firstImg, setFirstImg] = useState(1)
+
+  return (
+    <Wrapper className="grid" id="landscapes" >
+      <div className="left" >
+        <h2>Landscapes</h2>
+        <p>
+          Scotland comes from Scoti, the Latin name for the Gaels. Philip
+          Freeman has speculated on the likelihood of a group of raiders
+          adopting a name from an Indo-European root, *skot, citing the parallel
+          in Greek skotos , meaning "darkness, gloom"
+        </p>
+      </div>
+      <div className="bleed-right  ">
+        <div ref={ref} className="images">
+          <ImgWrapper num={1} firstImg={firstImg}>
+            <StaticImage
+              className="img"
+              src="../assets/images/land-1.jpg"
+              alt=""
+            />{" "}
+            <p>Isle of Skye</p>
+          </ImgWrapper>
+          <ImgWrapper num={1} firstImg={firstImg}>
+            <StaticImage
+              className="img"
+              src="../assets/images/land-2.jpg"
+              alt=""
+            />
+            <p>Glenfinnan</p>
+          </ImgWrapper>
+          <ImgWrapper num={3} firstImg={firstImg}>
+            <StaticImage
+              className="img"
+              src="../assets/images/land-3.jpg"
+              alt=""
+            />
+            <p>Glencoe</p>
+          </ImgWrapper>
+          <ImgWrapper num={4} firstImg={firstImg}>
+            <StaticImage
+              className="img"
+              src="../assets/images/land-4.jpg"
+              alt=""
+            />
+            <p>Cairngorms</p>
+          </ImgWrapper>
+        </div>
+        <div className="d-flex control-box">
+          <button
+            className="btn-icon"
+            onClick={() => {
+              if (firstImg > 1) {
+                ref.current.scrollLeft =
+                  (firstImg - 2) * ref.current.offsetWidth * 0.43
+                setFirstImg(prev => --prev)
+              }
+            }}
+            disabled={firstImg === 1}
+          >
+            <BsArrowLeft />
+          </button>
+          <button
+            onClick={() => {
+              if (firstImg < 3) {
+                ref.current.scrollLeft =
+                  firstImg * ref.current.offsetWidth * 0.43
+                setFirstImg(prev => ++prev)
+              }
+            }}
+            className="btn-icon"
+            disabled={firstImg === 3}
+          >
+            <BsArrowRight />
+          </button>
+        </div>
+      </div>
+    </Wrapper>
+  )
+}
+
+const ImgWrapper = ({ children, num, firstImg }) => {
+  const isShaded = firstImg + 2 === num
+
+  return (
+    <div className={`img-wrapper ${isShaded ? "shaded" : "clear"}`}>
+      {children}
+    </div>
+  )
+}
+
+const Wrapper = styled.section`
+  /* height: 100vh; */
+  position: relative;
+  top: -20vh;
+  padding-top: 100px;
+
+  .bleed-right {
+    position: relative;
+  }
+
+  .control-box {
+    position: absolute;
+    bottom: -3rem;
+    left: 0;
+  }
+
+  button:disabled {
+    color: grey;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  p {
+    max-width: 50ch;
+  }
+
+  .shaded {
+    opacity: 0.5;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .clear {
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+  }
+
+  .images {
+    display: grid;
+    white-space: nowrap;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(5, 40%);
+    gap: 3%;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .post-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .post-grid {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .img {
+    width: 100%;
+    margin-right: 2rem;
+    aspect-ratio: 1/2;
+    object-fit: cover;
+  }
+
+  .img-wrapper {
+    position: relative;
+  }
+
+  .img-wrapper p {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: right;
+    opacity: 1;
+  }
+
+  .btn-icon {
+    font-size: 22px;
+  }
+`
+
+export default Landscapes
