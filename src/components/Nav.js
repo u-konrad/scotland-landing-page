@@ -28,7 +28,7 @@ const Wrapper = styled.nav`
   ul {
     display: flex;
     gap: 3rem;
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.3);
+    /* border-bottom: 0.5px solid rgba(255, 255, 255, 0.3); */
   }
 
   li {
@@ -40,6 +40,17 @@ const Wrapper = styled.nav`
   li:hover {
     opacity: 1;
     box-shadow: inset 0 -3px 0 white;
+  }
+
+  .last {
+    opacity: 1;
+    font-weight: 700;
+  }
+
+  @media screen and (max-width: 768px) {
+    ul {
+      display: none;
+    }
   }
 `
 

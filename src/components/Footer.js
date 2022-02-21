@@ -17,7 +17,8 @@ const Footer = () => {
         ))}
       </div>
       </div>
-      <p className="text-end text-muted">&copy;2022 AlbaTours</p>
+      <hr></hr>
+      <p >&copy;2022 AlbaTours</p>
     </Wrapper>
   )
 }
@@ -25,21 +26,26 @@ const Footer = () => {
 const Wrapper = styled.div`
   padding-inline: var(--nav-padding);
   background-color: black;
+
+  hr{
+    color: grey;
+    margin: 0;
+  }
  
 
 &>div{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 2rem;
-  padding-bottom: 0.25rem;
+padding-block: 2rem;
 
 }
 
 &>p{
-  padding-bottom: 0.5rem;
+  padding-block: 0.5rem;
 font-size: 14px;
-font-weight: bold;
+text-align: center;
+color: grey;
 }
 
   .logo{
@@ -67,6 +73,16 @@ opacity: 1;
     gap: 0.5rem;
 }
 
+@media screen and (max-width: 768px) {
+  &>div{
+flex-direction: column;
+  }
+
+  ul {
+    flex-direction: column;
+    margin-block:2rem;
+  }
+}
 `
 
 export default Footer

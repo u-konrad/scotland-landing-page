@@ -42,6 +42,12 @@ justify-content: center;
 flex-direction: column;
 }
 
+@media screen and (max-width:768px) {
+
+  display: none;
+  
+}
+
 `
 
 export default SocialPanel

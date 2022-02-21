@@ -21,11 +21,10 @@ const Hero = () => {
         </p>
         <button className="btn btn-sharp">Book&nbsp;tour</button>
       </div>
-      <StaticImage
+      {/* <StaticImage
         className="img full-bleed"
         src="../assets/images/hero.jpg"
-        width={1920}
-      ></StaticImage>
+      ></StaticImage> */}
 
       <SocialPanel />
     </Wrapper>
@@ -36,7 +35,7 @@ const Wrapper = styled.section`
   position: relative;
 
   h1 {
-    font-size: 144px;
+    font-size: clamp(33px,12vw,144px);
     font-weight: bold;
     text-transform: uppercase;
     color: white;
@@ -86,6 +85,10 @@ const Wrapper = styled.section`
     padding-left: 0.5rem;
     font-weight: 500;
     font-size: 22px;
+  }
+
+  @media screen and (max-width: 768px) {
+    
   }
 `
 

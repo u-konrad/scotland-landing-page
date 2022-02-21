@@ -53,6 +53,7 @@ const Activities = () => {
 const Wrapper = styled.div`
   padding-top: 100px;
   padding-bottom: 300px;
+  z-index: -1;
 
   p {
     max-width: 50ch;
@@ -62,9 +63,13 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
+  }
 
-  
+  @media screen  and (max-width:768px) {
+    .full-width {
+      grid-template-columns: 1fr;
 
+    }
   }
 
   .img {
@@ -74,8 +79,6 @@ const Wrapper = styled.div`
 
   }
 
-  .full-width>div{
-  }
 
 
 

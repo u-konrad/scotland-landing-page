@@ -14,10 +14,10 @@ const IndexPage = ({ data }) => {
 
   return (
     <React.Fragment>
-      <Hero />
+      {/* <Hero />
       <Landscapes />
       <Nature />
-      <Map data={data}  />
+      <Map data={data}  /> */}
       <Activities/>
       <End/>
       <Footer/>
