@@ -25,7 +25,7 @@ padding-inline: 1rem;
 
   div {
     width: 0.5px;
-    height: 60px;
+    height: 50px;
     background-color: var(--color);
   }
 

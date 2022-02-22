@@ -22,9 +22,7 @@ const Links = () => {
         <li>
           <a href="#">Activities</a>
         </li>
-        <li>
-          <a className='last' href="#">Book</a>
-        </li>
+
       </ul>
   )
 }

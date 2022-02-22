@@ -5,8 +5,7 @@ import { useState } from "react"
 import { HiLocationMarker } from "react-icons/hi"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { getImage } from "gatsby-plugin-image"
-
-
+import SlideArrows from "./SlideArrows"
 
 const Map = ({ data }) => {
   const [currentTab, setCurrentTab] = useState(0)
@@ -21,48 +20,66 @@ const Map = ({ data }) => {
   })
 
   return (
-    <Wrapper >
+    <Wrapper>
       <div className="grid">
         <div className="full-width text-center">
-        <h2 className="mb-2">Attractions</h2><p>Most magical places in Scotland.</p></div>
-      </div>
-      <div className="grid">
-      <div className="left">
-        <ul className="mb-3">
-          {places.map((tab, index) => {
-            return (
-              <Tablink
-                onClick={() => setCurrentTab(index)}
-                tab={tab}
-                index={index}
-                isActive={currentTab === index}
-              />
-            )
-          })}
-        </ul>
-        <div className="tab-container">
-          {places.map((tab, index) => (
-            <Tab tab={tab} index={index} isActive={currentTab === index} />
-          ))}
+          <h2 className="mb-2">Attractions</h2>
+          <p>Most magical places in Scotland.</p>
         </div>
       </div>
-      <div className="right">
-        <StaticImage
-          className="map"
-          src="../assets/images/map-light.png"
-          alt=""
-        />
-        {places.map((tab, index) => {
-          return (
-            <Marker
-              key={index}
-              tab={tab}
-              isActive={currentTab === index}
-              onClick={() => setCurrentTab(index)}
+      <div className="grid">
+        <div className="left">
+          <ul className="mb-3 tablinks">
+            {places.map((tab, index) => {
+              return (
+                <Tablink
+                  onClick={() => setCurrentTab(index)}
+                  tab={tab}
+                  index={index}
+                  isActive={currentTab === index}
+                />
+              )
+            })}
+          </ul>
+          <div className="tab-container">
+            {places.map((tab, index) => (
+              <Tab tab={tab} index={index} isActive={currentTab === index} />
+            ))}
+            <div className=" arrows">
+              <SlideArrows
+                onClickLeft={() => {
+                  console.log(currentTab)
+                  setCurrentTab(prev => --prev)
+                }}
+                onClickRight={() => {
+                  console.log(currentTab)
+                  setCurrentTab(prev => ++prev)
+                }}
+                disabledLeft={currentTab === 0}
+                disabledRight={currentTab === 4}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="right">
+          <div className="map-frame">
+            <StaticImage
+              className="map"
+              src="../assets/images/map-light.png"
+              alt=""
             />
-          )
-        })}
-      </div>
+            {places.map((tab, index) => {
+              return (
+                <Marker
+                  key={index}
+                  tab={tab}
+                  isActive={currentTab === index}
+                  onClick={() => setCurrentTab(index)}
+                />
+              )
+            })}
+          </div>
+        </div>
       </div>
     </Wrapper>
   )
@@ -81,14 +98,12 @@ const Tablink = ({ index, tab, isActive, onClick }) => {
 const Tab = ({ tab, index, isActive }) => {
   return (
     <Fragment>
-      
-        <div className={`tab ${isActive && "show"}`} key={index}>
-          <GatsbyImage className="img mb-5" image={getImage(tab.img)} alt="" />
+      <div className={`tab ${isActive && "show"}`} key={index}>
+        <GatsbyImage className="img mb-5" image={getImage(tab.img)} alt="" />
 
-          <h3 className="mb-3">{tab.title}</h3>
-          <p>{tab.desc}</p>
-        </div>
-  
+        <h3 className="mb-3">{tab.title}</h3>
+        <p>{tab.desc}</p>
+      </div>
     </Fragment>
   )
 }
@@ -97,7 +112,7 @@ const Marker = ({ tab, isActive, onClick }) => {
   return (
     <div
       className={`marker ${isActive && "active"}`}
-      style={{ top: tab.y+"%", left: tab.x+3+"%" }}
+      style={{ top: tab.y + "%", left: tab.x - 14 + "%" }}
       onClick={onClick}
     >
       <button className="btn-icon">
@@ -109,9 +124,36 @@ const Marker = ({ tab, isActive, onClick }) => {
 }
 
 const Wrapper = styled.section`
-  padding-block: 100px;
+  min-height: 100vh;
 
-  &>div:first-child{
+  .arrows {
+    position: relative;
+    top: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20%;
+    justify-content: space-between;
+    display: none;
+  }
+
+  .control-box {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .control-box button {
+    background-color: white;
+    color: black;
+    width: 30px;
+    height: 30px;
+  }
+
+  .control-box button:disabled {
+    background-color: grey;
+
+  }
+
+  & > div:first-child {
     padding-bottom: 50px;
   }
 
@@ -132,6 +174,13 @@ const Wrapper = styled.section`
     transition: all 0.2s linear;
   }
 
+  @media screen and (max-width: 1200px) {
+    min-height: 0;
+    .tablink button {
+      font-size: 12px;
+    }
+  }
+
   .tablink.active button {
     /* border-bottom: 2px solid white; */
     opacity: 1;
@@ -142,9 +191,49 @@ const Wrapper = styled.section`
     padding: 0;
   }
 
+  
+
+  .map-frame {
+    width: 495px !important;
+    aspect-ratio: 495/712;
+    position: absolute;
+  }
+
+  @media screen and (max-width: 992px) {
+    .arrows {
+      display: flex;
+    }
+
+    .tablinks {
+      display: none;
+    }
+
+    .map-frame {
+      top: -20%;
+      left: 40%;
+      transform: scale(0.8) translateX(-50%);
+    }
+
+    .right {
+      height: 500px;
+    }
+
+    .left {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+ 
+
+    .map-frame {
+      top: -30%;
+      left: 40%;
+      transform: scale(0.7) translateX(-60%);
+    }
+  }
   .map {
-    width: 75%;
-    margin-left: auto;
+    object-fit: contain;
   }
 
   .marker {
@@ -186,7 +275,7 @@ const Wrapper = styled.section`
   .marker.active .title {
     background-color: hsl(var(--clr-accent-2));
     font-size: 14px;
-opacity:1
+    opacity: 1;
   }
 
   .right {
@@ -195,25 +284,25 @@ opacity:1
     justify-content: flex-end;
   }
 
-
   h3 {
     font-weight: bold;
     font-size: 40px;
   }
 
-  .tab-container{
+  .tab-container {
     position: relative;
+    min-height: 550px;
   }
 
-  .tab{
+  .tab {
     position: absolute;
     top: 0;
-    left:0;
-    opacity:0;
-    transition:all 0.5s ease-in-out
+    left: 0;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
   }
 
-  .tab.show{
+  .tab.show {
     opacity: 1;
   }
 

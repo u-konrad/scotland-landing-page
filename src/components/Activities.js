@@ -9,40 +9,50 @@ const Activities = () => {
         <div className="left">
           {" "}
           <h2>Activities</h2>
-          <p>Most magical places in Scotland.</p>
+          <p>
+            Welcome to Scotland, the ultimate natural playground. Here you can
+            have a go at all the activities the country is legendary for, as
+            well as some you might not have heard of.
+          </p>
         </div>
       </div>
       <div className="grid">
         <div className="full-width">
-          <div >
+          <div>
             <StaticImage
               className="img"
               alt=""
               src="../assets/images/hiking.jpg"
             />
             <h3>Hiking</h3>
-            <p>Most magical places in Scotland.</p>
-
+            <p>
+              Welcome to Scotland, the ultimate natural playground. Here you can
+              have a go at all the activities the country is legendary for.
+            </p>
           </div>
-          <div >
+          <div>
             <StaticImage
               className="img"
               alt=""
               src="../assets/images/tent.jpg"
             />
             <h3>Camping</h3>
-            <p>Most magical places in Scotland.</p>
-
+            <p>
+              Welcome to Scotland, the ultimate natural playground. Here you can
+              have a go at all the activities the country is legendary for.
+            </p>
           </div>
-          <div >
+          <div>
             <StaticImage
               className="img"
               alt=""
               src="../assets/images/kayak.jpg"
             />
             <h3>Kayaking</h3>
-            <p>Most magical places in Scotland.</p>
-
+            <p>
+              Welcome to Scotland, the ultimate natural playground. Here you can
+              have a go at all the activities the country is legendary for.
+            </p>
           </div>
         </div>
       </div>
@@ -51,12 +61,14 @@ const Activities = () => {
 }
 
 const Wrapper = styled.div`
-  padding-top: 100px;
-  padding-bottom: 300px;
+  padding-bottom: var(--section-gap);
   z-index: -1;
+  
 
-  p {
+  h3 ~ p {
     max-width: 50ch;
+    line-height: 1.5;
+    font-size: 16px;
   }
 
   .full-width {
@@ -65,27 +77,40 @@ const Wrapper = styled.div`
     gap: 3rem;
   }
 
-  @media screen  and (max-width:768px) {
-    .full-width {
-      grid-template-columns: 1fr;
-
-    }
-  }
-
   .img {
     aspect-ratio: 1/1;
     object-fit: cover;
-
-
+    width: 100%;
   }
 
+  h3 {
+    font-size: 32px;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  
+  @media screen and (max-width: 768px) {
+    padding-bottom: 100px;
 
 
-
-  h3{
-      font-size: 36px;
+    h3 {
       margin-top: 1rem;
+
+    }
+
+    .full-width {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+
+
+    .img {
+      aspect-ratio: 3/2;
+    }
   }
+
 `
 
 export default Activities

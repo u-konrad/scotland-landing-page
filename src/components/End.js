@@ -19,7 +19,7 @@ const End = () => {
   }
 
   return (
-    <Wrapper className="grid ">
+    <Wrapper className="grid end">
       <div className="left full-bleed-sm">
         <StaticImage
           className="img"
@@ -99,34 +99,40 @@ const End = () => {
 const Wrapper = styled.section`
   background-color: white;
 
+  button {
+    width: 100%;
+  }
+
   .form-group {
     margin-bottom: 1rem;
   }
 
   form {
     width: 100%;
-    max-width: 500px;
   }
 
   form > div:first-child {
     display: grid;
-    column-gap: 1rem;
+    column-gap: 0.5rem;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   }
 
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
   .right {
     color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
-    margin-left: 3rem;
-
+    align-items: flex-start;
   }
 
-  h2{
-    margin-top: 2rem;
+  h2 {
+    margin-top: 3rem;
   }
 
   p {
@@ -134,42 +140,32 @@ const Wrapper = styled.section`
     line-height: 1.5;
   }
 
-  .left{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .img {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    object-fit: cover;
   }
 
-  /* .img {
-    position: relative;
-    top: -10%;
-  } */
+  @media screen and (min-width: 768px) {
+    .right {
+      margin-left: 3rem;
+    }
 
-  button {
-    width: 100px;
-  }
+    .left {
+      display: block;
+    }
 
-  @media screen and (max-width: 992px) {
-    text-align: start;
-
-
-
-    h2{
+    .img {
+      position: relative;
+      top: -10%;
+    }
+    h2 {
       font-size: 56px;
     }
-
-    .img{
-      width: 100%;
-      top:0;
-      margin-block: auto;
-    }
   }
 
-  @media screen and (max-width: 768px) {
-    form,
-    button {
-      width: 100%;
-      max-width: none;
+  @media screen and (min-width: 992px) {
+    .right {
+      margin-left: 3rem;
     }
   }
 `

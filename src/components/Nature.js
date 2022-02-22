@@ -5,8 +5,8 @@ import styled from "styled-components"
 const Nature = () => {
   return (
     <Wrapper className="grid">
-      <div className="left">
-        <StaticImage alt="" src="../assets/images/deer.png" />
+      <div className="left mb-3">
+        <StaticImage alt="" className="img"  src="../assets/images/deer.png" />
       </div>
       <div className="right">
         <h2>Wildlife</h2>
@@ -33,7 +33,19 @@ const Nature = () => {
 }
 
 const Wrapper = styled.section`
-  padding-block: 100px;
+
+
+  @media screen and (max-width:768px ) {
+    .img{
+width:80%;
+}
+
+.left{
+  display: flex;
+  justify-content: center;
+}
+  }
+
 
   p {
     max-width: 50ch;
@@ -45,11 +57,12 @@ const Wrapper = styled.section`
     justify-content: center;
     height: 100%;
   }
-  iframe{
-      width: 100%;
-aspect-ratio:560/315 }
+  iframe {
+    width: 100%;
+    aspect-ratio: 560/315;
+  }
 
-  .video{
+  .video {
     margin-top: 3rem;
   }
 `

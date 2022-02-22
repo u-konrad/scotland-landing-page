@@ -6,25 +6,29 @@ import Nav from "./Nav"
 
 const Hero = () => {
   return (
-    <Wrapper className="grid">
+    <Wrapper className="grid hero">
       <Nav />
       <div className="full-width title-box">
         <h1>
           Visit
           <br /> Scotland
         </h1>
-        <p className="mb-3">
+        <p className="mb-3 large-text">
           Scotland comes from Scoti, the Latin name for the Gaels. Philip
           Freeman has speculated on the likelihood of a group of raiders
           adopting a name from an Indo-European root, *skot, citing the parallel
           in Greek skotos , meaning <span>darkness, gloom.</span>
         </p>
+        <p className="mb-3 small-text">
+          Scotland comes from Scoti, the Latin name for the Gaels, meaning darkness, gloom.
+        
+        </p>
         <button className="btn btn-sharp">Book&nbsp;tour</button>
       </div>
-      {/* <StaticImage
+      <StaticImage
         className="img full-bleed"
         src="../assets/images/hero.jpg"
-      ></StaticImage> */}
+      ></StaticImage>
 
       <SocialPanel />
     </Wrapper>
@@ -35,7 +39,7 @@ const Wrapper = styled.section`
   position: relative;
 
   h1 {
-    font-size: clamp(33px,12vw,144px);
+    font-size: clamp(60px, 12vw, 144px);
     font-weight: bold;
     text-transform: uppercase;
     color: white;
@@ -87,9 +91,56 @@ const Wrapper = styled.section`
     font-size: 22px;
   }
 
-  @media screen and (max-width: 768px) {
-    
+  .large-text {
+    display: block;
   }
+
+  .small-text {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .large-text {
+      display: none;
+    }
+
+    .small-text {
+      display: block;
+    }
+
+    h3 {
+      line-height: 1.2;
+    }
+
+    .img,
+    .title-box {
+      height: 80vh;
+    }
+
+    .img {
+      margin-left: -10%;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      max-width: 40ch;
+      opacity: 1;
+    }
+
+    p span {
+      padding-left: 0;
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    h1{
+      font-size: 54px;
+    }
+  }
+
 `
 
 export default Hero

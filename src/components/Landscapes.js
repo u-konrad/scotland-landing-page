@@ -2,15 +2,15 @@ import React, { useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { createRef } from "react"
-import { BsArrowRight, BsArrowLeft } from "react-icons/bs"
+import SlideArrows from "./SlideArrows"
 
 const Landscapes = () => {
   const ref = createRef()
   const [firstImg, setFirstImg] = useState(1)
 
   return (
-    <Wrapper className="grid" id="landscapes" >
-      <div className="left" >
+    <Wrapper className="grid" id="landscapes">
+      <div className="left">
         <h2>Landscapes</h2>
         <p>
           Scotland comes from Scoti, the Latin name for the Gaels. Philip
@@ -54,34 +54,23 @@ const Landscapes = () => {
             <p>Cairngorms</p>
           </ImgWrapper>
         </div>
-        <div className="d-flex control-box">
-          <button
-            className="btn-icon"
-            onClick={() => {
-              if (firstImg > 1) {
-                ref.current.scrollLeft =
-                  (firstImg - 2) * ref.current.offsetWidth * 0.43
-                setFirstImg(prev => --prev)
-              }
-            }}
-            disabled={firstImg === 1}
-          >
-            <BsArrowLeft />
-          </button>
-          <button
-            onClick={() => {
-              if (firstImg < 3) {
-                ref.current.scrollLeft =
-                  firstImg * ref.current.offsetWidth * 0.43
-                setFirstImg(prev => ++prev)
-              }
-            }}
-            className="btn-icon"
-            disabled={firstImg === 3}
-          >
-            <BsArrowRight />
-          </button>
-        </div>
+        <SlideArrows
+          onClickLeft={() => {
+            if (firstImg > 1) {
+              ref.current.scrollLeft =
+                (firstImg - 2) * ref.current.offsetWidth * 0.43
+              setFirstImg(prev => --prev)
+            }
+          }}
+          onClickRight={() => {
+            if (firstImg < 3) {
+              ref.current.scrollLeft = firstImg * ref.current.offsetWidth * 0.43
+              setFirstImg(prev => ++prev)
+            }
+          }}
+          disabledLeft={firstImg === 1}
+          disabledRight={firstImg === 3}
+        />
       </div>
     </Wrapper>
   )
@@ -98,15 +87,16 @@ const ImgWrapper = ({ children, num, firstImg }) => {
 }
 
 const Wrapper = styled.section`
-  /* height: 100vh; */
   position: relative;
-  top: -20vh;
-  padding-top: 100px;
+  top: calc(-1 * var(--section-gap) / 2);
+  margin-bottom: calc(var(--section-gap) / 2) !important;
 
-  .bleed-right {
-    position: relative;
+  @media screen and (max-width: 768px) {
+    & {
+      top: 0;
+      margin-bottom: var(--section-gap) !important;
+    }
   }
-
   .control-box {
     position: absolute;
     bottom: -3rem;
@@ -117,14 +107,19 @@ const Wrapper = styled.section`
     color: grey;
   }
 
+  .bleed-right {
+    position: relative;
+  }
+
   .left {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    margin-bottom: 1rem;
   }
 
   p {
-    max-width: 50ch;
+    max-width: 45ch;
   }
 
   .shaded {
@@ -145,6 +140,26 @@ const Wrapper = styled.section`
     grid-auto-flow: column;
     grid-template-columns: repeat(5, 40%);
     gap: 3%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .bleed-right {
+      padding-left: var(--nav-padding);
+      overflow-x: auto;
+    }
+
+    .shaded {
+      opacity: 1;
+    }
+
+    .images {
+      overflow-x: auto;
+      margin-top: 2rem;
+    }
+
+    .control-box {
+      display: none !important;
+    }
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */
