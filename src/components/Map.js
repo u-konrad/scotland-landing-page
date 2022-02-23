@@ -1,5 +1,5 @@
 import { StaticImage } from "gatsby-plugin-image"
-import React, { Fragment } from "react"
+import React from "react"
 import styled from "styled-components"
 import { useState } from "react"
 import { HiLocationMarker } from "react-icons/hi"
@@ -33,6 +33,7 @@ const Map = ({ data }) => {
             {places.map((tab, index) => {
               return (
                 <Tablink
+                key={index}
                   onClick={() => setCurrentTab(index)}
                   tab={tab}
                   index={index}
@@ -43,7 +44,8 @@ const Map = ({ data }) => {
           </ul>
           <div className="tab-container">
             {places.map((tab, index) => (
-              <Tab tab={tab} index={index} isActive={currentTab === index} />
+              <Tab                 key={index}
+              tab={tab} index={index} isActive={currentTab === index} />
             ))}
             <div className=" arrows">
               <SlideArrows
@@ -70,8 +72,9 @@ const Map = ({ data }) => {
             />
             {places.map((tab, index) => {
               return (
-                <Marker
-                  key={index}
+                <Marker                 key={index}
+
+                  index={index}
                   tab={tab}
                   isActive={currentTab === index}
                   onClick={() => setCurrentTab(index)}
@@ -85,9 +88,9 @@ const Map = ({ data }) => {
   )
 }
 
-const Tablink = ({ index, tab, isActive, onClick }) => {
+const Tablink = ({  tab, isActive, onClick }) => {
   return (
-    <li className={`tablink ${isActive && "active"}`} key={index}>
+    <li className={`tablink ${isActive && "active"}`}>
       <button className="btn-icon" onClick={onClick}>
         {tab.title}
       </button>
@@ -95,27 +98,25 @@ const Tablink = ({ index, tab, isActive, onClick }) => {
   )
 }
 
-const Tab = ({ tab, index, isActive }) => {
+const Tab = ({ tab,  isActive }) => {
   return (
-    <Fragment>
-      <div className={`tab ${isActive && "show"}`} key={index}>
-        <GatsbyImage className="img mb-5" image={getImage(tab.img)} alt="" />
+    <div className={`tab ${isActive && "show"}`} >
+      <GatsbyImage className="img mb-5" image={getImage(tab.img)} alt="" />
 
-        <h3 className="mb-3">{tab.title}</h3>
-        <p>{tab.desc}</p>
-      </div>
-    </Fragment>
+      <h3 className="mb-3">{tab.title}</h3>
+      <p>{tab.desc}</p>
+    </div>
   )
 }
 
-const Marker = ({ tab, isActive, onClick }) => {
+const Marker = ({ tab, isActive, onClick}) => {
   return (
     <div
       className={`marker ${isActive && "active"}`}
       style={{ top: tab.y + "%", left: tab.x - 14 + "%" }}
-      onClick={onClick}
     >
-      <button className="btn-icon">
+      <button className="btn-icon"       onClick={onClick}
+>
         <HiLocationMarker className="icon" />
       </button>
       <span className="title">{tab.title}</span>

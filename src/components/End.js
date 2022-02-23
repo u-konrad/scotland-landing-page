@@ -14,9 +14,6 @@ const End = () => {
   const [startDate, setStartDate] = useState(d2)
   const [endDate, setEndDate] = useState(d2)
 
-  const startHandler = e => {
-    console.log(e.target.value)
-  }
 
   return (
     <Wrapper className="grid end" id="book">

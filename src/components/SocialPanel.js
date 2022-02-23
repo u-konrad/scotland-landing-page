@@ -1,15 +1,13 @@
-import { navigate } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import socialLinks from "../assets/constants/social_links"
-import Arrow from "./Arrow"
 
 const SocialPanel = () => {
   return (
     <Wrapper>
       <div className="links">
         {socialLinks.map(link => {
-          return <a className="btn btn-icon" href={link.url} target="_blank">{link.icon}</a>
+          return <a key={link.id} className="btn btn-icon" href={link.url} target="_blank" rel="noreferrer">{link.icon}</a>
         })}
       </div>
       <div className="line"></div>

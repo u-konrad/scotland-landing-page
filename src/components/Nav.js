@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import Logo from "./Logo"
-import { BsFillBookmarkPlusFill } from "react-icons/bs"
 import Sidebar from "./Sidebar"
 import { useState } from "react"
 import { HiMenu } from "react-icons/hi"
@@ -54,8 +53,8 @@ const Wrapper = styled.nav`
   .toggle-btn {
     display: none;
     line-height: 1;
-    font-size: 28px;
-    padding-bottom: 7px;
+    font-size: 32px!important;
+    padding-bottom: 13px;
   }
 
  .links {
@@ -64,7 +63,8 @@ const Wrapper = styled.nav`
     /* border-bottom: 0.5px solid rgba(255, 255, 255, 0.3); */
     text-transform: uppercase;
     letter-spacing: 0.05rem;
-    font-family: 'montserrat';
+    font-family: 'Montserrat';
+    font-weight: 400;
   }
 
   li {
@@ -81,9 +81,17 @@ const Wrapper = styled.nav`
 
   .links li:last-of-type a{
     font-weight: 700;
-    font-size: 18px;
-    text-transform: uppercase;
+
   }
+
+  @media screen and (max-width: 992px) {
+    .links {
+      font-size: 14px;
+      gap:2vw;
+
+    }
+  }
+
 
 
   @media screen and (max-width: 768px) {

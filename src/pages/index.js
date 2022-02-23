@@ -7,12 +7,12 @@ import { graphql } from "gatsby"
 import Activities from "../components/Activities"
 import End from "../components/End"
 import Footer from "../components/Footer"
+import Seo from '../components/seo'
 
 const IndexPage = ({ data }) => {
-
-
   return (
     <React.Fragment>
+      <Seo title="Scotland Tours"/>
       <Hero />
       <Landscapes />
       <Nature />

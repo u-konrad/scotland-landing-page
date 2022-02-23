@@ -29,6 +29,7 @@ const Hero = () => {
       <StaticImage
         className="img full-bleed"
         src="../assets/images/hero.jpg"
+        alt="scottish landscape with mountains and sea in the background"
       ></StaticImage>
 
       <SocialPanel />
@@ -49,7 +50,7 @@ const Wrapper = styled.section`
   }
 
   .btn-sharp{
-    font-family: 'montserrat';
+    font-family: 'Montserrat';
     text-transform: uppercase;
   }
 
