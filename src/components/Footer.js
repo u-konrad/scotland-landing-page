@@ -1,18 +1,30 @@
 import React from "react"
 import styled from "styled-components"
-import Links from "./Links"
 import Logo from "./Logo"
 import socialLinks from "../assets/constants/social_links"
+import links from '../assets/constants/links'
+import { Link } from "gatsby"
+
 
 const Footer = () => {
   return (
     <Wrapper>
       <div>
         <Logo />
-        <Links />
+        <ul className="links" >
+          {links.map(link => {
+            return (
+              <li key={link.id}>
+                <Link to={`${link.url}`}>
+                  {link.text}
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
         <div className="social-container">
           {socialLinks.map(link => (
-            <button className="btn btn-icon">{link.icon}</button>
+            <a href={link.url} target="_blank" className="btn btn-icon">{link.icon}</a>
           ))}
         </div>
       </div>

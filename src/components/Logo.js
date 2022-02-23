@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 
   svg {
     color: hsl(var(--clr-accent-2));
-    font-size: 28px;
+    font-size: 32px;
   }
 
   span:first-of-type {

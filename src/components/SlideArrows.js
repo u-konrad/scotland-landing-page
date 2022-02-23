@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { BsArrowRight, BsArrowLeft } from "react-icons/bs"
+import { MdOutlineArrowBackIos,MdOutlineArrowForwardIos} from "react-icons/md"
 
 const SlideArrows = ({
   onClickLeft,
@@ -15,14 +15,14 @@ const SlideArrows = ({
         onClick={onClickLeft}
         disabled={disabledLeft}
       >
-        <BsArrowLeft />
+        <MdOutlineArrowBackIos />
       </button>
       <button
         onClick={onClickRight}
         className="btn-icon"
         disabled={disabledRight}
       >
-        <BsArrowRight />
+        <MdOutlineArrowForwardIos />
       </button>
     </Wrapper>
   )

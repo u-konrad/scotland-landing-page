@@ -5,7 +5,7 @@ import styled from "styled-components"
 const Activities = () => {
   return (
     <Wrapper>
-      <div className="grid mb-5">
+      <div className="grid mb-5" id="activities">
         <div className="left">
           {" "}
           <h2>Activities</h2>
@@ -63,6 +63,11 @@ const Activities = () => {
 const Wrapper = styled.div`
   padding-bottom: var(--section-gap);
   z-index: -1;
+
+  p{
+    max-width: 50ch;
+
+  }
   
 
   h3 ~ p {

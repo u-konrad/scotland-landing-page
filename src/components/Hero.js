@@ -3,10 +3,11 @@ import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import SocialPanel from "./SocialPanel"
 import Nav from "./Nav"
+import { Link } from "gatsby"
 
 const Hero = () => {
   return (
-    <Wrapper className="grid hero">
+    <Wrapper className="grid hero" id="home">
       <Nav />
       <div className="full-width title-box">
         <h1>
@@ -23,7 +24,7 @@ const Hero = () => {
           Scotland comes from Scoti, the Latin name for the Gaels, meaning darkness, gloom.
         
         </p>
-        <button className="btn btn-sharp">Book&nbsp;tour</button>
+        <Link to='#book' className="btn btn-sharp">Book&nbsp;tour</Link>
       </div>
       <StaticImage
         className="img full-bleed"
@@ -45,6 +46,11 @@ const Wrapper = styled.section`
     color: white;
     line-height: 1;
     margin-bottom: 1rem;
+  }
+
+  .btn-sharp{
+    font-family: 'montserrat';
+    text-transform: uppercase;
   }
 
   .img {

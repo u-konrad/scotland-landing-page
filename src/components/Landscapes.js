@@ -103,6 +103,12 @@ const Wrapper = styled.section`
     left: 0;
   }
 
+  .control-box button{
+    font-size: 26px;
+
+  }
+
+
   button:disabled {
     color: grey;
   }
@@ -116,6 +122,7 @@ const Wrapper = styled.section`
     flex-direction: column;
     justify-content: flex-end;
     margin-bottom: 1rem;
+    margin-right: 1rem;
   }
 
   p {

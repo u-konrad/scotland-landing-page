@@ -19,7 +19,7 @@ const End = () => {
   }
 
   return (
-    <Wrapper className="grid end">
+    <Wrapper className="grid end" id="book">
       <div className="left full-bleed-sm">
         <StaticImage
           className="img"

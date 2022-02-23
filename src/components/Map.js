@@ -20,7 +20,7 @@ const Map = ({ data }) => {
   })
 
   return (
-    <Wrapper>
+    <Wrapper id="attractions">
       <div className="grid">
         <div className="full-width text-center">
           <h2 className="mb-2">Attractions</h2>
@@ -132,7 +132,7 @@ const Wrapper = styled.section`
     left: 50%;
     transform: translateX(-50%);
     width: 20%;
-    justify-content: space-between;
+    justify-content: center;
     display: none;
   }
 
@@ -141,16 +141,8 @@ const Wrapper = styled.section`
     justify-content: space-between;
   }
 
-  .control-box button {
-    background-color: white;
-    color: black;
-    width: 30px;
-    height: 30px;
-  }
-
   .control-box button:disabled {
-    background-color: grey;
-
+    color: grey;
   }
 
   & > div:first-child {
@@ -191,8 +183,6 @@ const Wrapper = styled.section`
     padding: 0;
   }
 
-  
-
   .map-frame {
     width: 495px !important;
     aspect-ratio: 495/712;
@@ -224,8 +214,6 @@ const Wrapper = styled.section`
   }
 
   @media screen and (max-width: 768px) {
- 
-
     .map-frame {
       top: -30%;
       left: 40%;
@@ -310,6 +298,12 @@ const Wrapper = styled.section`
     width: 100%;
     aspect-ratio: 3/1.7;
     object-fit: cover;
+  }
+
+  @media screen and (max-width: 768px) {
+    .tab .img {
+      aspect-ratio: 3/2;
+    }
   }
 `
 

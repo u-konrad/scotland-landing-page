@@ -9,7 +9,7 @@ const SocialPanel = () => {
     <Wrapper>
       <div className="links">
         {socialLinks.map(link => {
-          return <button className="btn btn-icon">{link.icon}</button>
+          return <a className="btn btn-icon" href={link.url} target="_blank">{link.icon}</a>
         })}
       </div>
       <div className="line"></div>

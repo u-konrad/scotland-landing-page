@@ -1,4 +1,4 @@
-import  React from "react"
+import React from "react"
 import Hero from "../components/Hero"
 import Landscapes from "../components/Landscapes"
 import Nature from "../components/Nature"
@@ -10,17 +10,16 @@ import Footer from "../components/Footer"
 
 const IndexPage = ({ data }) => {
 
-  console.log(data)
 
   return (
     <React.Fragment>
       <Hero />
       <Landscapes />
       <Nature />
-      <Map data={data}  />
-      <Activities/>
-      <End/>
-      <Footer/>
+      <Map data={data} />
+      <Activities />
+      <End />
+      <Footer />
     </React.Fragment>
   )
 }

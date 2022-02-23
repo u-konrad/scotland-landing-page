@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 const Nature = () => {
   return (
-    <Wrapper className="grid">
+    <Wrapper className="grid" id="wildlife">
       <div className="left mb-3">
         <StaticImage alt="" className="img"  src="../assets/images/deer.png" />
       </div>
@@ -48,7 +48,7 @@ width:80%;
 
 
   p {
-    max-width: 50ch;
+    max-width: 45ch;
   }
 
   .right {
