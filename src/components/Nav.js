@@ -39,7 +39,6 @@ const Nav = () => {
 
 const Wrapper = styled.nav`
   position: absolute;
-  z-index: 1;
   top: 0;
   left: 0;
   width: 100vw;
@@ -60,7 +59,6 @@ const Wrapper = styled.nav`
  .links {
     display: flex;
     gap: 3rem;
-    /* border-bottom: 0.5px solid rgba(255, 255, 255, 0.3); */
     text-transform: uppercase;
     letter-spacing: 0.05rem;
     font-family: 'Montserrat';

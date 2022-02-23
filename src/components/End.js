@@ -130,6 +130,7 @@ const Wrapper = styled.section`
 
   h2 {
     margin-top: 3rem;
+    font-size: 56px;
   }
 
   p {
@@ -156,7 +157,7 @@ const Wrapper = styled.section`
       top: -10%;
     }
     h2 {
-      font-size: 56px;
+      font-size: 64px;
     }
   }
 
