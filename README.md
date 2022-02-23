@@ -1,4 +1,4 @@
-# Scotland Travel Landing Site
+# Scotland Travel Landing Page
 
 A landing page for a Scotland travel tour company, built with Gatsby.js.
 
