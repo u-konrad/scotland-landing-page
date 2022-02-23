@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 
 const Hero = () => {
   return (
-    <Wrapper className="grid hero" id="home">
+    <div className="grid hero" id="home">
       <div className="full-width title-box">
         <h1>
           Visit
@@ -35,7 +35,7 @@ const Hero = () => {
       ></StaticImage>
 
       <SocialPanel />
-    </Wrapper>
+    </div>
   )
 }
 

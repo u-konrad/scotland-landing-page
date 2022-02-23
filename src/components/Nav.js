@@ -15,7 +15,7 @@ const Nav = () => {
   }
 
   return (
-    <Wrapper>
+    <nav className="topnav">
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
       <Logo />
       <ul className="links" >
@@ -33,7 +33,7 @@ const Nav = () => {
       <button className="btn-icon toggle-btn" onClick={toggleSidebar}>
         <HiMenu />
       </button>
-    </Wrapper>
+    </nav>
   )
 }
 
