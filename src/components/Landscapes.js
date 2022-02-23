@@ -26,6 +26,8 @@ const Landscapes = () => {
               className="img"
               src="../assets/images/land-1.jpg"
               alt=""
+              placeholder="tracedSVG"
+              quality="85"
             />{" "}
             <p>Isle of Skye</p>
           </ImgWrapper>
@@ -34,6 +36,8 @@ const Landscapes = () => {
               className="img"
               src="../assets/images/land-2.jpg"
               alt=""
+              placeholder="tracedSVG"
+              quality="85"
             />
             <p>Glenfinnan</p>
           </ImgWrapper>
@@ -42,6 +46,8 @@ const Landscapes = () => {
               className="img"
               src="../assets/images/land-3.jpg"
               alt=""
+              placeholder="tracedSVG"
+              quality="85"
             />
             <p>Glencoe</p>
           </ImgWrapper>
@@ -50,6 +56,8 @@ const Landscapes = () => {
               className="img"
               src="../assets/images/land-4.jpg"
               alt=""
+              placeholder="tracedSVG"
+              quality="85"
             />
             <p>Cairngorms</p>
           </ImgWrapper>

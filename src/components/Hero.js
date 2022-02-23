@@ -2,13 +2,11 @@ import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import SocialPanel from "./SocialPanel"
-import Nav from "./Nav"
 import { Link } from "gatsby"
 
 const Hero = () => {
   return (
     <Wrapper className="grid hero" id="home">
-      <Nav />
       <div className="full-width title-box">
         <h1>
           Visit
@@ -30,6 +28,10 @@ const Hero = () => {
         className="img full-bleed"
         src="../assets/images/hero.jpg"
         alt="scottish landscape with mountains and sea in the background"
+        layout="constrained"
+        placeholder="tracedSVG"
+        quality="85"
+        width={1920}
       ></StaticImage>
 
       <SocialPanel />

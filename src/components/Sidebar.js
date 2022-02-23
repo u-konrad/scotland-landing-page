@@ -43,7 +43,7 @@ const Wrapper = styled.aside`
   background: white;
   position: fixed;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   height: 100vh;
   z-index: 999;
@@ -51,12 +51,11 @@ const Wrapper = styled.aside`
   place-items: center;
   opacity: 0;
   transition: all 0.5s ease-in-out;
-  transform: translateX(-100%);
   color: black;
 
   &.show-sidebar {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(100%);
   }
 
   .sidebar-icons {

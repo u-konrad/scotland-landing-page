@@ -8,11 +8,13 @@ import Activities from "../components/Activities"
 import End from "../components/End"
 import Footer from "../components/Footer"
 import Seo from '../components/seo'
+import Nav from "../components/Nav"
 
 const IndexPage = ({ data }) => {
   return (
     <React.Fragment>
       <Seo title="Scotland Tours"/>
+      <Nav/>
       <Hero />
       <Landscapes />
       <Nature />

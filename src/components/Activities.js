@@ -23,6 +23,8 @@ const Activities = () => {
               className="img"
               alt=""
               src="../assets/images/hiking.jpg"
+              placeholder="tracedSVG"
+              quality="85"
             />
             <h3>Hiking</h3>
             <p>
@@ -35,6 +37,8 @@ const Activities = () => {
               className="img"
               alt=""
               src="../assets/images/tent.jpg"
+              placeholder="tracedSVG"
+              quality="85"
             />
             <h3>Camping</h3>
             <p>
@@ -47,6 +51,8 @@ const Activities = () => {
               className="img"
               alt=""
               src="../assets/images/kayak.jpg"
+              placeholder="tracedSVG"
+              quality="85"
             />
             <h3>Kayaking</h3>
             <p>

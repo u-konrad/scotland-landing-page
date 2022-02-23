@@ -24,6 +24,7 @@ const End = () => {
           quality={100}
           layout="constrained"
           src="../assets/images/end.jpg"
+          placeholder="tracedSVG"
         />
       </div>
       <div className="right">

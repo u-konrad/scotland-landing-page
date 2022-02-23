@@ -4,7 +4,7 @@ A landing site for a Scotland travel tour company, built with Gatsby.js.
 
 ## Site
 
-Here is a link to the site: [https://clothing-shop-gatsby.netlify.app/](https://clothing-shop-gatsby.netlify.app/)
+Here is a link to the site: [https://alba-tours.netlify.app/](https://alba-tours.netlify.app/)
 
 ![Home page](./src/assets/images/scotland-home.jpg)
 

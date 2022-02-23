@@ -33,7 +33,7 @@ const Map = ({ data }) => {
             {places.map((tab, index) => {
               return (
                 <Tablink
-                key={index}
+                  key={index}
                   onClick={() => setCurrentTab(index)}
                   tab={tab}
                   index={index}
@@ -44,8 +44,12 @@ const Map = ({ data }) => {
           </ul>
           <div className="tab-container">
             {places.map((tab, index) => (
-              <Tab                 key={index}
-              tab={tab} index={index} isActive={currentTab === index} />
+              <Tab
+                key={index}
+                tab={tab}
+                index={index}
+                isActive={currentTab === index}
+              />
             ))}
             <div className=" arrows">
               <SlideArrows
@@ -69,11 +73,13 @@ const Map = ({ data }) => {
               className="map"
               src="../assets/images/map-light.png"
               alt=""
+              placeholder="tracedSVG"
+              quality="85"
             />
             {places.map((tab, index) => {
               return (
-                <Marker                 key={index}
-
+                <Marker
+                  key={index}
                   index={index}
                   tab={tab}
                   isActive={currentTab === index}
@@ -88,7 +94,7 @@ const Map = ({ data }) => {
   )
 }
 
-const Tablink = ({  tab, isActive, onClick }) => {
+const Tablink = ({ tab, isActive, onClick }) => {
   return (
     <li className={`tablink ${isActive && "active"}`}>
       <button className="btn-icon" onClick={onClick}>
@@ -98,9 +104,9 @@ const Tablink = ({  tab, isActive, onClick }) => {
   )
 }
 
-const Tab = ({ tab,  isActive }) => {
+const Tab = ({ tab, isActive }) => {
   return (
-    <div className={`tab ${isActive && "show"}`} >
+    <div className={`tab ${isActive && "show"}`}>
       <GatsbyImage className="img mb-5" image={getImage(tab.img)} alt="" />
 
       <h3 className="mb-3">{tab.title}</h3>
@@ -109,14 +115,13 @@ const Tab = ({ tab,  isActive }) => {
   )
 }
 
-const Marker = ({ tab, isActive, onClick}) => {
+const Marker = ({ tab, isActive, onClick }) => {
   return (
     <div
       className={`marker ${isActive && "active"}`}
       style={{ top: tab.y + "%", left: tab.x - 14 + "%" }}
     >
-      <button className="btn-icon"       onClick={onClick}
->
+      <button className="btn-icon" onClick={onClick}>
         <HiLocationMarker className="icon" />
       </button>
       <span className="title">{tab.title}</span>
