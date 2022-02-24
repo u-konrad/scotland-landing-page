@@ -49,22 +49,10 @@ const Map = ({ data }) => {
                 tab={tab}
                 index={index}
                 isActive={currentTab === index}
+                currentTab={currentTab}
+                setCurrentTab={setCurrentTab}
               />
             ))}
-            <div className=" arrows">
-              <SlideArrows
-                onClickLeft={() => {
-                  console.log(currentTab)
-                  setCurrentTab(prev => --prev)
-                }}
-                onClickRight={() => {
-                  console.log(currentTab)
-                  setCurrentTab(prev => ++prev)
-                }}
-                disabledLeft={currentTab === 0}
-                disabledRight={currentTab === 4}
-              />
-            </div>
           </div>
         </div>
         <div className="right">
@@ -104,11 +92,22 @@ const Tablink = ({ tab, isActive, onClick }) => {
   )
 }
 
-const Tab = ({ tab, isActive }) => {
+const Tab = ({ tab, isActive, currentTab, setCurrentTab }) => {
   return (
     <div className={`tab ${isActive && "show"}`}>
-      <GatsbyImage className="img mb-5" image={getImage(tab.img)} alt="" />
-
+      <div className="mb-5">
+        <GatsbyImage className="img " image={getImage(tab.img)} alt="" />
+        <SlideArrows
+          onClickLeft={() => {
+            setCurrentTab(prev => --prev)
+          }}
+          onClickRight={() => {
+            setCurrentTab(prev => ++prev)
+          }}
+          disabledLeft={currentTab === 0}
+          disabledRight={currentTab === 4}
+        />
+      </div>
       <h3 className="mb-3">{tab.title}</h3>
       <p>{tab.desc}</p>
     </div>
@@ -132,19 +131,24 @@ const Marker = ({ tab, isActive, onClick }) => {
 const Wrapper = styled.section`
   min-height: 100vh;
 
-  .arrows {
+  .tab>div {
     position: relative;
-    top: -2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20%;
-    justify-content: center;
+  }
+
+
+  .control-box {
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width: 90%;
+    justify-content: space-between;
     display: none;
   }
 
-  .control-box {
-    display: flex;
-    justify-content: space-between;
+  .control-box button{
+    font-size: 26px;
+    opacity: 0.8;
   }
 
   .control-box button:disabled {
@@ -196,7 +200,7 @@ const Wrapper = styled.section`
   }
 
   @media screen and (max-width: 992px) {
-    .arrows {
+    .control-box {
       display: flex;
     }
 

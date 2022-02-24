@@ -9,7 +9,7 @@ const SlideArrows = ({
   disabledRight,
 }) => {
   return (
-    <Wrapper className="d-flex control-box">
+    <Wrapper className="control-box">
       <button
         className="btn-icon me-3"
         onClick={onClickLeft}
