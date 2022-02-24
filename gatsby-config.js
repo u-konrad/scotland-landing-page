@@ -5,8 +5,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Alba Tours`,
-    description: `Book tours of Scotland.`,
+    title: `Nature tours in Scotland`,
+    description: `Book tours of beautiful Scotland.`,
     author: `konrad_urbanczyk`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },

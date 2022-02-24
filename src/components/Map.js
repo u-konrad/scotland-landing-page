@@ -120,7 +120,7 @@ const Marker = ({ tab, isActive, onClick }) => {
       className={`marker ${isActive && "active"}`}
       style={{ top: tab.y + "%", left: tab.x - 14 + "%" }}
     >
-      <button className="btn-icon" onClick={onClick}>
+      <button className="btn-icon" aria-label={tab.title} onClick={onClick}>
         <HiLocationMarker className="icon" />
       </button>
       <span className="title">{tab.title}</span>
@@ -216,17 +216,13 @@ const Wrapper = styled.section`
 
     .right {
       height: 500px;
+      position:relative ;
     }
 
-    .left {
-      margin-bottom: 2rem;
-    }
   }
 
   @media screen and (max-width: 768px) {
     .map-frame {
-      top: -30%;
-      left: 40%;
       transform: scale(0.7) translateX(-60%);
     }
   }
@@ -289,7 +285,7 @@ const Wrapper = styled.section`
 
   .tab-container {
     position: relative;
-    min-height: 550px;
+    /* min-height: 600px; */
   }
 
   .tab {
@@ -298,6 +294,10 @@ const Wrapper = styled.section`
     left: 0;
     opacity: 0;
     transition: all 0.5s ease-in-out;
+  }
+
+  .tab:first-child{
+    position: static;
   }
 
   .tab.show {

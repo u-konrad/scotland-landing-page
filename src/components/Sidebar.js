@@ -8,7 +8,7 @@ import styled from "styled-components"
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
     <Wrapper className={isOpen ? "sidebar show-sidebar" : "sidebar"}>
-      <button className="close-btn" type="button" onClick={toggleSidebar}>
+      <button className="close-btn" type="button" aria-label='close sidebar' onClick={toggleSidebar}>
         <FaTimes />
       </button>
       <div className="side-container">
@@ -27,7 +27,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           {socialLinks.map(link => {
             return (
               <li key={link.id}>
-                <a href={link.url}  target="_blank" rel="noreferrer" className="social-link">
+                <a href={link.url} aria-label={link.label}  target="_blank" rel="noreferrer" className="social-link">
                   {link.icon}
                 </a>
               </li>

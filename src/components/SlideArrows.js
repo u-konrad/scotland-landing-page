@@ -14,6 +14,7 @@ const SlideArrows = ({
         className="btn-icon me-3"
         onClick={onClickLeft}
         disabled={disabledLeft}
+        aria-label='slide left'
       >
         <MdOutlineArrowBackIos />
       </button>
@@ -21,6 +22,7 @@ const SlideArrows = ({
         onClick={onClickRight}
         className="btn-icon"
         disabled={disabledRight}
+        aria-label='slide right'
       >
         <MdOutlineArrowForwardIos />
       </button>

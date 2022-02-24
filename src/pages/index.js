@@ -13,7 +13,7 @@ import Nav from "../components/Nav"
 const IndexPage = ({ data }) => {
   return (
     <React.Fragment>
-      <Seo title="Scotland Tours"/>
+      <Seo title="Alba Tours"/>
       <Nav/>
       <Hero />
       <Landscapes />

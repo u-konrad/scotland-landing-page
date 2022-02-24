@@ -24,7 +24,7 @@ const Footer = () => {
         </ul>
         <div className="social-container">
           {socialLinks.map(link => (
-            <a key={link.id} href={link.url} target="_blank" rel="noreferrer" className="btn btn-icon">{link.icon}</a>
+            <a key={link.id} href={link.url} aria-label={link.aria} target="_blank" rel="noreferrer" className="btn btn-icon">{link.icon}</a>
           ))}
         </div>
       </div>

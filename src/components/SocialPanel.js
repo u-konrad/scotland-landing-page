@@ -7,7 +7,7 @@ const SocialPanel = () => {
     <Wrapper>
       <div className="links">
         {socialLinks.map(link => {
-          return <a key={link.id} className="btn btn-icon" href={link.url} target="_blank" rel="noreferrer">{link.icon}</a>
+          return <a key={link.id} className="btn btn-icon" aria-label={link.aria} href={link.url} target="_blank" rel="noreferrer">{link.icon}</a>
         })}
       </div>
       <div className="line"></div>
